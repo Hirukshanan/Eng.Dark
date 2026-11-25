@@ -1,16 +1,33 @@
-h1 {
-  font-size: 64px;
-  font-weight: 800;
-  letter-spacing: -3px;
+/* Active navigation */
+
+.nav-item {
+  position: relative;
+  border: 1px solid transparent;
 }
 
-h1 span {
-  color: var(--purple);
+.nav-item.active {
+  color: var(--cyan);
+  background: #302345;
+  border-color: #68518e;
 }
 
-p {
-  color: var(--muted);
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin-top: 12px;
+.nav-indicator {
+  width: 14px;
+  height: 3px;
+  border-radius: 10px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-item.active .nav-indicator {
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.nav-item.active svg {
+  filter: drop-shadow(0 0 5px #59e3ef70);
+}
+
+.nav-item.active:hover {
+  color: var(--cyan);
 }
