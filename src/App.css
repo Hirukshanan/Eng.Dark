@@ -1,9 +1,73 @@
-/* Active navigation */
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 5%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
 
 .nav-item {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 76px;
+  padding: 10px 12px;
   border: 1px solid transparent;
+  border-radius: 9px;
+  color: var(--muted);
+  transition: all 0.25s ease;
 }
+
+.nav-item span {
+  font-size: 12px;
+}
+
+.nav-item:hover {
+  color: var(--cyan);
+  background: #29213e;
+  transform: translateY(-3px);
+}
+
+.nav-item svg {
+  transition: transform 0.25s ease;
+}
+
+.nav-item:hover svg {
+  transform: scale(1.15);
+}
+
+/* =========================
+   ACTIVE NAVIGATION
+========================= */
 
 .nav-item.active {
   color: var(--cyan);
@@ -28,6 +92,138 @@
   filter: drop-shadow(0 0 5px #59e3ef70);
 }
 
-.nav-item.active:hover {
+/* =========================
+   MODE SWITCH
+========================= */
+
+.mode-switch {
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.mode-switch button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 12px;
+  transition: all 0.25s ease;
+}
+
+.mode-switch button:hover {
   color: var(--cyan);
+}
+
+.mode-switch button.selected {
+  background: #302345;
+  color: var(--purple);
+  border-color: #68518e;
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.home {
+  padding: 80px 5%;
+}
+
+.home h1 {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.home h1 span {
+  color: var(--purple);
+}
+
+.home p {
+  color: var(--muted);
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 1100px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    order: 3;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 100%;
+  }
+
+  .nav-item {
+    min-width: 0;
+    padding: 10px 4px;
+  }
+
+  .home h1 {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .home {
+    padding: 40px 5%;
+  }
+
+  .home h1 {
+    font-size: 38px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Portfolio modes */
+
+.portfolio {
+  min-height: 100vh;
+}
+
+.mode-status {
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: var(--purple);
+}
+
+.experience-mode .mode-status {
+  color: var(--cyan);
+}
+
+.experience-mode .home {
+  background: radial-gradient(
+    ellipse at 80% 30%,
+    #25183c,
+    transparent 65%
+  );
 }

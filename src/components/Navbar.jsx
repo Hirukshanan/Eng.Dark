@@ -1,3 +1,4 @@
+import ModeSwitch from './ModeSwitch';
 import { NavLink } from 'react-router-dom';
 
 import {
@@ -22,7 +23,7 @@ const navItems = [
   { name: 'Contact', icon: Mail }
 ];
 
-function Navbar() {
+function Navbar({ mode, setMode }) {
   return (
     <header className="navbar">
 
@@ -47,7 +48,7 @@ function Navbar() {
           </NavLink>
         ))}
       </nav>
-
+      <ModeSwitch mode={mode} setMode={setMode} />
     </header>
   );
 }
