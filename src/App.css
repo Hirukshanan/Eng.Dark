@@ -227,3 +227,433 @@
     transparent 65%
   );
 }
+
+/* =========================
+   HOME PAGE — HERO SECTION
+========================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 60px;
+  max-width: 1400px;
+  min-height: 65vh;
+  margin: auto;
+}
+
+.hero-content {
+  min-width: 0;
+}
+
+/* Availability status */
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  margin-bottom: 24px;
+  background: #102820;
+  border: 1px solid #285e47;
+  border-radius: 30px;
+  color: #83e8b4;
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #83e8b4;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #83e8b480;
+}
+
+/* Personal information */
+
+.home .hero-name {
+  font-size: clamp(36px, 4.5vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+}
+
+.hero-name span {
+  display: block;
+  color: var(--purple);
+}
+
+.hero-role {
+  font-size: clamp(17px, 2vw, 23px);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.hero-education {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+
+.home .hero-tagline {
+  color: var(--purple);
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 24px;
+}
+
+.home .hero-introduction {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: normal;
+  margin-top: 16px;
+}
+
+/* Action buttons */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.primary-button {
+  background: var(--purple);
+  color: var(--bg);
+  border: 1px solid var(--purple);
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #b39aff40;
+}
+
+.secondary-button {
+  border: 1px solid #68518e;
+  color: var(--text);
+}
+
+.secondary-button:hover {
+  background: #302345;
+  border-color: var(--purple);
+}
+
+/* Social links */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.social-links a {
+  color: var(--muted);
+  transition: 0.25s ease;
+}
+
+.social-links a:hover {
+  color: var(--cyan);
+  transform: translateY(-3px);
+}
+
+/* =========================
+   PROFILE PORTRAIT
+========================= */
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.portrait-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 420px;
+  padding: 40px;
+}
+
+.portrait-ring {
+  position: relative;
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  padding: 5px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--purple),
+    #52349c,
+    var(--cyan)
+  );
+  box-shadow: 0 0 45px #b39aff30;
+}
+
+.profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: 4px solid var(--bg);
+  border-radius: 50%;
+}
+
+.portrait-label {
+  margin-top: 35px;
+  color: var(--purple);
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+/* =========================
+   EXPERIENCE MODE
+========================= */
+
+.experience-mode .portrait-frame {
+  background: radial-gradient(
+    ellipse at center,
+    #37225270,
+    transparent 75%
+  );
+  border: 1px solid #49365f;
+  border-radius: 20px;
+}
+
+.experience-mode .portrait-ring {
+  box-shadow:
+    0 0 25px #b39aff50,
+    0 0 70px #7945dd30;
+}
+
+/* Outer animated ring */
+
+.experience-mode .portrait-ring::after {
+  content: "";
+  position: absolute;
+  inset: -17px;
+  border: 1px dashed var(--cyan);
+  border-radius: 50%;
+  opacity: 0.65;
+  pointer-events: none;
+  animation: orbit 25s linear infinite;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   RESPONSIVE HOME PAGE
+========================= */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-visual {
+    grid-row: 1;
+  }
+
+  .portrait-frame {
+    max-width: 450px;
+    min-height: 320px;
+    padding: 30px;
+  }
+
+  .portrait-ring {
+    width: min(100%, 240px);
+  }
+}
+
+@media (max-width: 480px) {
+  .portrait-ring {
+    width: min(100%, 190px);
+  }
+
+  .portrait-frame {
+    min-height: 280px;
+  }
+
+  .portrait-label {
+    letter-spacing: 1px;
+  }
+
+  .home .hero-tagline {
+    font-size: 17px;
+  }
+}
+
+/* =========================
+   FUTURISTIC HUD INTERFACE
+========================= */
+
+.experience-mode .portrait-frame {
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      circle at center,
+      #42256b50,
+      transparent 70%
+    ),
+    linear-gradient(
+      #b39aff08 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      #b39aff08 1px,
+      transparent 1px
+    ),
+    #10101b;
+
+  background-size:
+    100% 100%,
+    25px 25px,
+    25px 25px,
+    auto;
+}
+
+/* HUD corners */
+
+.hud-corner {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: var(--purple);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.top-left {
+  top: 12px;
+  left: 12px;
+  border-width: 2px 0 0 2px;
+}
+
+.top-right {
+  top: 12px;
+  right: 12px;
+  border-width: 2px 2px 0 0;
+}
+
+.bottom-left {
+  bottom: 12px;
+  left: 12px;
+  border-width: 0 0 2px 2px;
+}
+
+.bottom-right {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 2px 2px 0;
+}
+
+/* HUD information */
+
+.hud-text {
+  position: absolute;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  z-index: 2;
+}
+
+.hud-top-left {
+  top: 28px;
+  left: 28px;
+}
+
+.hud-top-right {
+  top: 28px;
+  right: 28px;
+  color: var(--cyan);
+}
+
+.hud-bottom-left {
+  bottom: 28px;
+  left: 28px;
+}
+
+.hud-bottom-right {
+  bottom: 28px;
+  right: 28px;
+}
+
+/* Animated scanning effect */
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--cyan),
+    transparent
+  );
+
+  opacity: 0.35;
+  animation: hud-scan 7s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes hud-scan {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hud-text {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-line {
+    display: none;
+  }
+}
