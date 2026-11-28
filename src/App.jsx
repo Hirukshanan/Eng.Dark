@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import NeuralField from './components/NeuralField';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -37,12 +38,31 @@ function App() {
 
       <div className={`portfolio ${mode}-mode`}>
 
+        {/* Global neural background */}
+
+        {mode === 'experience' && (
+          <div
+            className="page-neural-bg"
+            aria-hidden="true"
+          >
+            <NeuralField />
+          </div>
+        )}
+
         <Navbar mode={mode} setMode={setMode} />
 
         <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
 
-          <Route path="/home" element={<Home mode={mode} />} />
+          <Route
+            path="/"
+            element={<Navigate to="/home" replace />}
+          />
+
+          <Route
+            path="/home"
+            element={<Home mode={mode} />}
+          />
+
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
@@ -51,7 +71,11 @@ function App() {
           <Route path="/darkx" element={<DarkX />} />
           <Route path="/contact" element={<Contact />} />
 
-          <Route path="*" element={<Navigate to="/home" replace />} />
+          <Route
+            path="*"
+            element={<Navigate to="/home" replace />}
+          />
+
         </Routes>
 
       </div>

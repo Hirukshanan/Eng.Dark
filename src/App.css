@@ -657,3 +657,66 @@
     display: none;
   }
 }
+/* =========================
+   GLOBAL NEURAL BACKGROUND
+========================= */
+
+.portfolio {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.page-neural-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.page-neural-bg .neural-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Keep content above neural background */
+
+.portfolio > *:not(.page-neural-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Transparent gradient */
+
+.experience-mode .home {
+  background: radial-gradient(
+    ellipse at 80% 30%,
+    #25183c55,
+    transparent 70%
+  );
+}
+
+/* Static profile portrait */
+
+.experience-mode .portrait-ring {
+  transform: none !important;
+  transition: box-shadow 0.3s ease;
+}
+
+.experience-mode .portrait-frame {
+  cursor: default;
+  box-shadow: 0 0 60px #7945dd15;
+}
+
+/* Mobile optimization */
+
+@media (max-width: 600px) {
+  .page-neural-bg {
+    opacity: 0.45;
+  }
+}

@@ -14,11 +14,9 @@ function Home({ mode }) {
 
   return (
     <main className="home">
-
       <section className="hero">
 
         {/* Personal information */}
-
         <div className="hero-content">
 
           {profile.openToWork && (
@@ -29,9 +27,7 @@ function Home({ mode }) {
           )}
 
           <div className="mode-status">
-            {isExperience
-              ? 'IDENTITY // 001'
-              : 'HELLO, I AM'}
+            {isExperience ? 'IDENTITY // 001' : 'HELLO, I AM'}
           </div>
 
           <h1 className="hero-name">
@@ -57,10 +53,7 @@ function Home({ mode }) {
             {profile.introduction}
           </p>
 
-          {/* Action buttons */}
-
           <div className="hero-actions">
-
             <Link to="/projects" className="primary-button">
               View Projects
               <ArrowUpRight size={18} />
@@ -69,13 +62,9 @@ function Home({ mode }) {
             <Link to="/contact" className="secondary-button">
               Contact Me
             </Link>
-
           </div>
 
-          {/* Social links */}
-
           <div className="social-links">
-
             <a
               href={profile.social.github}
               target="_blank"
@@ -103,33 +92,20 @@ function Home({ mode }) {
             >
               <Mail size={22} />
             </a>
-
           </div>
 
         </div>
 
         {/* Profile picture section */}
-
         <div className="hero-visual">
-
           <div className="portrait-frame">
-
-            {/* Futuristic HUD — Experience Mode only */}
 
             {isExperience && (
               <>
-
-                {/* HUD corners */}
-
                 <div className="hud-corner top-left" />
-
                 <div className="hud-corner top-right" />
-
                 <div className="hud-corner bottom-left" />
-
                 <div className="hud-corner bottom-right" />
-
-                {/* HUD information */}
 
                 <span className="hud-text hud-top-left">
                   IDENTITY // 001
@@ -147,39 +123,27 @@ function Home({ mode }) {
                   SYSTEM ACTIVE
                 </span>
 
-                {/* Animated scanning effect */}
-
                 <div className="scan-line" />
-
               </>
             )}
 
-            {/* Circular profile photo */}
-
             <div className="portrait-ring">
-
               <img
                 src={`${import.meta.env.BASE_URL}profile.jpg`}
                 alt={profile.name}
                 className="profile-image"
               />
-
             </div>
-
-            {/* Experience mode identity label */}
 
             {isExperience && (
               <div className="portrait-label">
                 ENG.DARK // IDENTITY
               </div>
             )}
-
           </div>
-
         </div>
 
       </section>
-
     </main>
   );
 }
